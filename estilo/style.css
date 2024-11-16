@@ -23,7 +23,7 @@ header{
     color: white;
     padding: 10px;
     height: 200px;
-    width: 100vw;
+
 
 }
 body{
@@ -49,17 +49,8 @@ main{
     background-color: white;
     text-indent: 3px;
 }
-
-menu > ul > li{
-    list-style-type: none;
-    display: inline;
-    padding-top: 20px;
-    padding-left: 40px;
-    text-indent: 10px;
-}
-
-menu > ul > li:hover{
-    background-color: #976c10;
+li{
+    list-style: none;
 }
 p{
     margin: 10px;
