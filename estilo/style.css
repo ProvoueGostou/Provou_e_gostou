@@ -56,3 +56,10 @@ a{
     text-decoration: none;
     font-weight: bold;
 }
+
+aside{
+    background-color: #362706bd;
+    padding: 10px;
+    border-radius: 10px;
+    color: white;
+}
