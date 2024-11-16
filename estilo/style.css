@@ -1,1 +1,50 @@
 @charset "UTF-8";
+
+@font-face {
+    font-family:"food";
+    src: url("../estilo/gGoodFood.ttf" )format(truetype);
+    font-weight: normal;
+    font-size: normal;
+}
+
+*{
+    margin: 0px;
+    padding: 0px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+main > h1{
+    font-family: "food";
+    line-height: 60px;
+}
+
+header{
+    background-image: url(../imagem/);
+    background-color: #362706;
+    color: white;
+    padding: 10px;
+    height: 200px;
+    width: 100vw;
+
+}
+body{
+    background-color: #a8383e96;
+    
+}
+header > img{
+    width: 199px;
+}
+img.cada{
+    width: 320px;
+    margin: auto;
+    padding: 10px;
+    
+}
+main{
+    width: 350px;
+    margin: auto;
+    border-radius: 0px 0px 20px 20px;
+    padding: 20px;
+    background-color: white;
+    text-indent: 3px;
+}
