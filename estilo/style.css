@@ -19,11 +19,10 @@ main > h1{
 }
 
 header{
-    background-image: url(../imagem/);
     background-color: #362706;
     color: white;
     padding: 10px;
-    height: 200px;
+    height: 230px;
     width: 100vw;
 
 }
@@ -34,17 +33,33 @@ body{
 header > img{
     width: 199px;
 }
+
 img.cada{
     width: 320px;
-    margin: auto;
-    padding: 10px;
+    padding-top: 20px;
+    padding-bottom: 20px;
     
 }
 main{
-    width: 350px;
+    width: 320px;
     margin: auto;
     border-radius: 0px 0px 20px 20px;
     padding: 20px;
     background-color: white;
     text-indent: 3px;
+}
+
+menu > ul > li{
+    list-style-type: none;
+    display: inline;
+    padding-top: 20px;
+    padding-left: 40px;
+    text-indent: 10px;
+}
+
+menu > ul > li:hover{
+    background-color: #976c10;
+}
+p{
+    margin: 10px;
 }
