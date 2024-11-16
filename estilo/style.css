@@ -1,12 +1,5 @@
 @charset "UTF-8";
 
-@font-face {
-    font-family:"food";
-    src: url("../estilo/gGoodFood.ttf" )format(truetype);
-    font-weight: normal;
-    font-size: normal;
-}
-
 *{
     margin: 0px;
     padding: 0px;
@@ -14,7 +7,6 @@
 }
 
 main > h1{
-    font-family: "food";
     line-height: 60px;
 }
 
@@ -41,6 +33,10 @@ img.cada{
     border-radius: 10px;
     
 }
+img.cardapio{
+    width: 100px;
+    border-radius: 25%;
+}
 main{
     width: 320px;
     margin: auto;
@@ -54,4 +50,9 @@ li{
 }
 p{
     margin: 10px;
+}
+
+a{
+    text-decoration: none;
+    font-weight: bold;
 }
