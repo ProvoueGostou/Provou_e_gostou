@@ -1,5 +1,9 @@
 @charset "UTF-8";
 
+@font-face {
+    font-family: "food";
+    src: url("Spooky\ Scary\ Creepy.ttf")format(truetype);
+}
 *{
     margin: 0px;
     padding: 0px;
@@ -17,6 +21,9 @@ header{
     height: 200px;
 
 
+}
+h1,h2{
+    font-family: "food";
 }
 body{
     background-color: #a8383e96;
@@ -62,4 +69,13 @@ aside{
     padding: 10px;
     border-radius: 10px;
     color: white;
+    box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.356);
+}
+aside > h3
+{
+    background-color: #362706a6;
+    color: white;
+    padding: 10px;
+    margin: -10px -10px 0px -10px;
+    border-radius: 10px 10px 0px 0px;
 }
