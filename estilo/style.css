@@ -15,22 +15,24 @@ main > h1{
 }
 
 header{
-    background-color: #362706;
+    background-image: linear-gradient(to bottom, #72520c, #423008, #362706);
+    text-align: center;
     color: white;
     padding: 10px;
-    height: 200px;
+    height: 220px;
 
 
 }
 h1,h2{
     font-family: "food";
 }
+
 body{
     background-color: #a8383e96;
     
 }
 header > img{
-    width: 199px;
+    width: 130px;
 }
 
 img.cada{
@@ -43,6 +45,8 @@ img.cada{
 img.cardapio{
     width: 100px;
     border-radius: 25%;
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
 main{
     width: 320px;
@@ -50,7 +54,9 @@ main{
     border-radius: 0px 0px 20px 20px;
     padding: 20px;
     background-color: white;
-    text-indent: 3px;
+}
+p.dica{
+    text-indent: 10px;
 }
 li{
     list-style: none;
@@ -78,4 +84,10 @@ aside > h3
     padding: 10px;
     margin: -10px -10px 0px -10px;
     border-radius: 10px 10px 0px 0px;
+}
+aside.co{
+    background-color: #000000e7;
+    width: 280px;
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
