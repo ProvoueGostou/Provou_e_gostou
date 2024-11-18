@@ -1,1 +1,57 @@
 @charset "UTF-8";
+
+
+@media screen and (min-width: 768px) and (max-width: 992px){
+    main{
+        width: 500px;
+    margin: auto;
+    padding: 20px;
+    background-color: white;
+
+    }
+    img.cada{
+        width: 500px;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        border-radius: 10px;
+        display: block;
+        margin: auto;
+        
+    }
+    video#v{
+        width: 500px;
+    }
+        
+    }
+    
+
+
+@media screen and (min-width: 992px){
+ 
+    main{
+        width: 800px;
+    margin: auto;
+    padding: 20px;
+    background-color: white;
+
+    }
+    img.cada{
+        width: 750px;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        border-radius: 10px;
+        display: block;
+        margin: auto;
+        
+    }
+    video#v{
+        width: 750px;
+        margin: auto;
+        display: block;
+    }
+    p{
+        line-height: 30px;
+    }
+    
+  
+}
