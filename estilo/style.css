@@ -23,6 +23,19 @@ header{
 
 
 }
+nav{
+    background-color: #362706;
+    padding: 10px;
+}
+nav > a{
+    color: white;
+    margin: 5px;
+    padding: 5px;
+    border-radius: 10px;
+}
+nav > a:hover{
+    background-color: #72520c;
+}
 h1,h2{
     font-family: "food";
 }
