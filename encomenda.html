@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Provou & Gostou</title>
+    <link rel="stylesheet" href="estilo/style.css">
+    <link rel="stylesheet" href="estilo/mediaquery.css">
+    <link rel="shortcut icon" href="imagem/favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <header>
+        <img src="imagem/Imagem_WhatsApp_2024-11-07_às_17.33.28_f551b4cd-removebg-preview.png" alt="Provou & Gostou">
+        <h1>Provou & Gostou</h1>
+        <p>Tudo aquilo que você sempre quis provar em um único lugar</p>
+    </header>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="Novidades.html">Novidades</a>
+        <a href="encomenda.html">Encomenda</a>
+    </nav>
+    <main>
+        <form id="pedidoForm">
+            <label for="primeiro_nome">Primeiro Nome:</label>
+            <input type="text" id="primeiro_nome" name="primeiro_nome" required>
+        
+            <label for="ultimo_nome">Último Nome:</label>
+            <input type="text" id="ultimo_nome" name="ultimo_nome" required>
+        
+            <label for="sala">Sala:</label>
+            <input type="text" id="sala" name="sala" required>
+        
+            <label for="curso">Curso:</label>
+            <input type="text" id="curso" name="curso" required>
+        
+            <label for="pedido">Pedido:</label>
+            <textarea id="pedido" name="pedido" rows="5" required></textarea>
+        
+            <button type="button" id="enviarPedido">Enviar Pedido</button>
+        </form>
+            </main>
+            <script>
+                document.getElementById('enviarPedido').addEventListener('click', function () {
+                    // Coletar os dados do formulário
+                    const primeiroNome = document.getElementById('primeiro_nome').value;
+                    const ultimoNome = document.getElementById('ultimo_nome').value;
+                    const sala = document.getElementById('sala').value;
+                    const curso = document.getElementById('curso').value;
+                    const pedido = document.getElementById('pedido').value;
+            
+                    // Validar se os campos estão preenchidos
+                    if (!primeiroNome || !ultimoNome || !sala || !curso || !pedido) {
+                        alert('Por favor, preencha todos os campos.');
+                        return;
+                    }
+            
+                    // Número do WhatsApp da empresa
+                    const numeroWhatsApp = '244941742290'; // Substitua pelo número da empresa
+            
+                    // Mensagem formatada
+                    const mensagem = `Olá, gostaria de fazer um pedido:%0A` +
+                        `*Nome:* ${primeiroNome} ${ultimoNome}%0A` +
+                        `*Sala:* ${sala}%0A` +
+                        `*Curso:* ${curso}%0A` +
+                        `*Pedido:* ${pedido}`;
+            
+                    // Montar o link do WhatsApp
+                    const linkWhatsApp = `https://api.whatsapp.com/send?phone=${numeroWhatsApp}&text=${mensagem}`;
+            
+                    // Redirecionar para o WhatsApp
+                    window.open(linkWhatsApp, '_blank');
+                });
+            </script>
+            
+</body>
+</html>
