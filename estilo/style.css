@@ -26,6 +26,8 @@ header{
 nav{
     background-color: #362706;
     padding: 10px;
+    font-size: 1.3em;
+    height: 30px;
 }
 nav > a{
     color: white;

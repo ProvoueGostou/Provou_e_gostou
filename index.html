@@ -24,7 +24,6 @@
     <nav>
         <a href="index.html">Home</a>
         <a href="Novidades.html">Novidades</a>
-        <a href="encomenda.html">Encomenda</a>
     </nav>
     <main>
         <article>
@@ -220,7 +219,7 @@
         // Fazer a notificação desaparecer após 3 segundos
         setTimeout(() => {
             notificationMessage.remove();
-        }, 3000);  // 3000ms = 3 segundos
+        }, 5000);  // 5000ms = 5 segundos
     }
 
     // Função para mostrar a notificação fora do carrinho
@@ -232,10 +231,10 @@
         outsideNotification.innerHTML = '';  // Limpa a notificação anterior
         outsideNotification.appendChild(outsideMessage);
 
-        // Fazer a notificação desaparecer após 3 segundos
+        // Fazer a notificação desaparecer após 5 segundos
         setTimeout(() => {
             outsideMessage.remove();
-        }, 3000);  // 3000ms = 3 segundos
+        }, 3000);  // 5000ms = 5 segundos
     }
 
     // Função para obter os itens do carrinho
