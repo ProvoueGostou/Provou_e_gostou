@@ -59,10 +59,10 @@
             
                     // Mensagem formatada
                     const mensagem = `Olá, gostaria de fazer um pedido:%0A` +
-                        `*Nome:* ${primeiroNome} ${ultimoNome}%0A` +
-                        `*Sala:* ${sala}%0A` +
-                        `*Curso:* ${curso}%0A` +
-                        `*Pedido:* ${pedido}`;
+                        `Nome: ${primeiroNome} ${ultimoNome}%0A` +
+                        `Sala: ${sala}%0A` +
+                        `Curso: ${curso}%0A` +
+                        `Pedido: ${pedido}`;
             
                     // Montar o link do WhatsApp
                     const linkWhatsApp = `https://api.whatsapp.com/send?phone=${numeroWhatsApp}&text=${mensagem}`;
