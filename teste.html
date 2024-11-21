@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrinho - Provou & Gostou</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Seu Carrinho</h1>
+        <ul id="cart-items">
+            <li>Fahita (2x) - 1500KZ</li>
+            <li>Água (3x) - 100KZ</li>
+        </ul>
+        <button id="checkout-btn">Finalizar Compra</button>
+    </div>
+
+    <script>
+        // Função para obter os itens do carrinho
+        function getCartItems() {
+            const cartItems = [];
+            document.querySelectorAll('#cart-items li').forEach(item => {
+                cartItems.push(item.textContent.trim());
+            });
+            return cartItems.join(', ');
+        }
+
+        // Redirecionar para a página de encomendas
+        document.getElementById('checkout-btn').addEventListener('click', () => {
+            const items = encodeURIComponent(getCartItems());
+            window.location.href = `encomenda.html?items=${items}`;
+        });
+    </script>
+</body>
+</html>

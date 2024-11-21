@@ -142,3 +142,116 @@ form button {
 form button:hover {
     background-color: #218838;
 }
+
+       /* Carrinho */
+       .cart-container {
+        position: fixed;
+        bottom: 0;
+        right: 0;
+        width: 300px;
+        max-height: 400px;
+        background-color: #f9f9f9;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        padding: 10px;
+        overflow-y: auto;
+        border-top-left-radius: 10px;
+        display: none;
+    }
+
+    .cart-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .cart-items {
+        margin: 10px 0;
+    }
+
+    .cart-item {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 10px;
+    }
+
+    .cart-total {
+        font-weight: bold;
+        text-align: right;
+    }
+
+    .cart-toggle {
+        position: fixed;
+        bottom: 0;
+        right: 0;
+        background-color: #ff9800;
+        color: #fff;
+        padding: 10px;
+        border-top-left-radius: 10px;
+        cursor: pointer;
+    }
+
+    .go-to-order {
+        display: block;
+        text-align: center;
+        background-color: #4caf50;
+        color: white;
+        padding: 10px;
+        margin-top: 10px;
+        border-radius: 5px;
+        text-decoration: none;
+    }
+
+    .go-to-order:hover {
+        background-color: #45a049;
+    }
+
+    .container {
+        max-width: 600px;
+        margin: 0 auto;
+        padding: 20px;
+        background: #fff;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        border-radius: 10px;
+    }
+
+
+    ul {
+        list-style-type: none;
+        padding: 0;
+    }
+
+    ul li {
+        margin: 10px 0;
+        padding: 10px;
+        background: #f9f9f9;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+    }
+
+    label {
+        display: block;
+        margin: 10px 0 5px;
+    }
+
+    input {
+        width: 100%;
+        padding: 8px;
+        margin-bottom: 10px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+    }
+
+    button.bu {
+        width: 100%;
+        padding: 10px;
+        background-color: #4caf50;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        font-size: 16px;
+        cursor: pointer;
+    }
+
+    button.bu:hover {
+        background-color: #45a049;
+    }

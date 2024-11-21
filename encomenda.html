@@ -3,74 +3,105 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Provou & Gostou</title>
+    <title>Encomenda - Provou & Gostou</title>
     <link rel="stylesheet" href="estilo/style.css">
     <link rel="stylesheet" href="estilo/mediaquery.css">
     <link rel="shortcut icon" href="imagem/favicon.ico" type="image/x-icon">
+    <style>
+      
+    </style>
 </head>
 <body>
-    <header>
-        <img src="imagem/Imagem_WhatsApp_2024-11-07_às_17.33.28_f551b4cd-removebg-preview.png" alt="Provou & Gostou">
-        <h1>Provou & Gostou</h1>
-        <p>Tudo aquilo que você sempre quis provar em um único lugar</p>
-    </header>
-    <nav>
-        <a href="index.html">Home</a>
-        <a href="Novidades.html">Novidades</a>
-        <a href="encomenda.html">Encomenda</a>
-    </nav>
-    <main>
-        <form id="pedidoForm">
-            <label for="primeiro_nome">Primeiro Nome:</label>
-            <input type="text" id="primeiro_nome" name="primeiro_nome" required>
-        
-            <label for="ultimo_nome">Último Nome:</label>
-            <input type="text" id="ultimo_nome" name="ultimo_nome" required>
-        
-            <label for="sala">Sala:</label>
-            <input type="text" id="sala" name="sala" required>
-        
-            <label for="curso">Curso:</label>
-            <input type="text" id="curso" name="curso" required>
-        
-            <label for="pedido">Pedido:</label>
-            <textarea id="pedido" name="pedido" rows="5" required></textarea>
-        
-            <button type="button" id="enviarPedido">Enviar Pedido</button>
+        <header>
+            <img src="imagem/Imagem_WhatsApp_2024-11-07_às_17.33.28_f551b4cd-removebg-preview.png" alt="">
+            <h1>Provou & Gostou</h1>
+            <p>Tudo aquilo que você sempre quis provar em um único lugar</p>
+        </header>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="Novidades.html">Novidades</a>
+            <a href="encomenda.html">Encomenda</a>
+        </nav>
+
+    <div class="container">
+        <h1>Resumo da Encomenda</h1>
+        <form id="order-form">
+            <h2>Produtos</h2>
+            <ul id="order-list"></ul>
+    
+            <h2>Dados do Cliente</h2>
+            <label for="first-name">Primeiro Nome:</label>
+            <input type="text" id="first-name" name="first-name" required>
+    
+            <label for="last-name">Último Nome:</label>
+            <input type="text" id="last-name" name="last-name" required>
+    
+            <label for="classroom">Sala:</label>
+            <input type="text" id="classroom" name="classroom" required>
+    
+            <label for="course">Curso:</label>
+            <input type="text" id="course" name="course" required>
+    
+            <button type="submit" class="bu">Confirmar Encomenda</button>
         </form>
-            </main>
-            <script>
-                document.getElementById('enviarPedido').addEventListener('click', function () {
-                    // Coletar os dados do formulário
-                    const primeiroNome = document.getElementById('primeiro_nome').value;
-                    const ultimoNome = document.getElementById('ultimo_nome').value;
-                    const sala = document.getElementById('sala').value;
-                    const curso = document.getElementById('curso').value;
-                    const pedido = document.getElementById('pedido').value;
-            
-                    // Validar se os campos estão preenchidos
-                    if (!primeiroNome || !ultimoNome || !sala || !curso || !pedido) {
-                        alert('Por favor, preencha todos os campos.');
-                        return;
-                    }
-            
-                    // Número do WhatsApp da empresa
-                    const numeroWhatsApp = '244927527809'; // Substitua pelo número da empresa
-            
-                    // Mensagem formatada
-                    const mensagem = `Olá, gostaria de fazer um pedido:%0A` +
-                        `Nome: ${primeiroNome} ${ultimoNome}%0A` +
-                        `Sala: ${sala}%0A` +
-                        `Curso: ${curso}%0A` +
-                        `Pedido: ${pedido}`;
-            
-                    // Montar o link do WhatsApp
-                    const linkWhatsApp = `https://api.whatsapp.com/send?phone=${numeroWhatsApp}&text=${mensagem}`;
-            
-                    // Redirecionar para o WhatsApp
-                    window.open(linkWhatsApp, '_blank');
-                });
-            </script>
-            
+    </div>
+
+    <script>
+        // Captura os parâmetros da URL
+        function getURLParams() {
+            const params = new URLSearchParams(window.location.search);
+            return params.get('items') || '';
+        }
+
+        // Exibe os itens da encomenda
+        function displayOrder() {
+            const itemsParam = getURLParams(); // Pega o parâmetro "items" da URL
+            const orderList = document.getElementById('order-list'); // Elemento UL
+            if (!itemsParam) {
+                orderList.innerHTML = '<li>Nenhum item foi selecionado.</li>';
+                return;
+            }
+
+            // Decodifica os itens e exibe na lista
+            const items = decodeURIComponent(itemsParam).split(', ');
+            orderList.innerHTML = ''; // Limpa a lista antes de preenchê-la
+            items.forEach(item => {
+                const li = document.createElement('li'); // Cria um elemento <li>
+                li.textContent = item; // Define o texto do item
+                orderList.appendChild(li); // Adiciona à lista
+            });
+        }
+
+        // Chamar a função ao carregar a página
+        window.onload = displayOrder;
+
+        // Envio do formulário (simula envio para o WhatsApp)
+        document.getElementById('order-form').addEventListener('submit', function (e) {
+            e.preventDefault(); // Impede o envio padrão do formulário
+
+            const firstName = document.getElementById('first-name').value;
+            const lastName = document.getElementById('last-name').value;
+            const classroom = document.getElementById('classroom').value;
+            const course = document.getElementById('course').value;
+            const items = document.getElementById('order-list').innerText;
+
+            if (!firstName || !lastName || !classroom || !course || !items) {
+                alert('Por favor, preencha todos os campos.');
+                return;
+            }
+
+            // Monta a mensagem do WhatsApp
+            const numeroWhatsApp = '244927527809'; // Substitua pelo número da empresa
+            const mensagem = `Olá, gostaria de fazer um pedido:%0A` +
+                `Nome: ${firstName} ${lastName}%0A` +
+                `Sala: ${classroom}%0A` +
+                `Curso: ${course}%0A` +
+                `Produtos: ${items}`;
+
+            // Redireciona para o WhatsApp
+            const linkWhatsApp = `https://api.whatsapp.com/send?phone=${numeroWhatsApp}&text=${mensagem}`;
+            window.open(linkWhatsApp, '_blank');
+        });
+    </script>
 </body>
 </html>
