@@ -3,21 +3,194 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Carrinho - Provou & Gostou</title>
+    <title>Provou & Gostou</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=menu" />
+    <link rel="stylesheet" href="estilo/style.css">
+    <link rel="stylesheet" href="estilo/mediaquery.css">
+    <link rel="shortcut icon" href="imagem/favicon.ico" type="image/x-icon">
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Seu Carrinho</h1>
-        <ul id="cart-items">
-            <li>Fahita (2x) - 1500KZ</li>
-            <li>Água (3x) - 100KZ</li>
-        </ul>
-        <button id="checkout-btn">Finalizar Compra</button>
-    </div>
+    <header>
+        <img src="imagem/Imagem_WhatsApp_2024-11-07_às_17.33.28_f551b4cd-removebg-preview.png" alt="">
+        <h1>Provou & Gostou</h1>
+        <p>Tudo aquilo que você sempre quis provar em um único lugar</p>
+    </header>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="Novidades.html">Novidades</a>
+        <a href="encomenda.html">Encomenda</a>
+    </nav>
+    <main>
+        <article>
+            <h1>🍴 Provou & Gostou – O Melhor Sabor Está Aqui! 🍹</h1>
+            <p class="dica">Se você busca qualidade, sabor e atendimento impecável, <strong>“Provou & Gostou”</strong> é o lugar certo! Localizados no coração de Luanda Sul, dentro do condomínio da polícia no Instituto Politécnico Privado Nossa Senhora da Anunciação, somos especialistas em transformar refeições em momentos inesquecíveis.</p>
+        </article>
+        <img src="imagem/Imagem WhatsApp 2024-11-06 às 22.05.06_18d4d440.jpg" alt="" class="cada">
+        <article>
+            <h1>Vem provar</h1>
+            <p class="dica">Aqui, você encontra as melhores bebidas refrescantes e comidas deliciosas, preparadas com dedicação para agradar todos os paladares. Cada mordida é uma experiência, cada gole é uma celebração.</p>
+            <video width="300px" controls preload="" id="v">
+                <source src="mutimedias/Vídeo WhatsApp 2024-11-06 às 22.05.02_369c2373.mp4" type="">
+            </video>
+        </article>
+        <article>
+            <aside class="co" id="comida">
+                <h2>Comida</h2>
+            
+                    <img src="imagem/Fahita1 (1).jpeg" alt="" class="cardapio">
+                    <p>FAHITA - 1500KZ</p>
+                    <p>Frango, pimento, milho, maionese, ketchup</p>
+                    <button onclick="addToCart('Fahita', 1500)" class="bu">
+                        <span class="material-icons">shopping_cart</span> Adicionar
+                    </button>
 
-    <script>
-        // Função para obter os itens do carrinho
-        function getCartItems() {
+                    
+                        <img src="imagem/transferir.jpg" alt="" class="cardapio">
+                        <p>TOSTA - 300KZ</p>
+                        <p>Fiabre, chourição, queijo, alface, maionese, ketchup</p>
+                        <button onclick="addToCart('Tosta', 300)" class="bu">
+                            <span class="material-icons">shopping_cart</span> Adicionar
+                        </button>
+                    </p>
+    
+                <p>
+                    <img src="imagem/images.jpg" alt="" class="cardapio"><br>
+                    PÃO DE FORIUÇO - 200KZ
+                    <button onclick="addToCart('Pão de Foriuço', 200)" class="bu">
+                        <span class="material-icons">shopping_cart</span> Adicionar
+                    </button>
+                </p>
+            </aside>
+            <aside class="co">
+                <h2>Sobremesas</h2>
+
+                    <img src="imagem/FIVYQFU6J5ND3PYRA6XQHR4NW4.avif" alt="" class="cardapio">
+                    <p>FATIA DE BOLO DE CHOCOLATE - 300KZ </p>
+                    <button onclick="addToCart('Fatia de Bolo de Chocolate', 300)" class="bu">
+                        <span class="material-icons">shopping_cart</span> Adicionar
+                    </button>
+                </p> 
+                 <p><img src="imagem/images (1).jpg" alt="" class="cardapio"><br> BOLINHO DE COCO - 200kz
+                    <button onclick="addToCart('BOLINHO DE COCO', 200)" class="bu">
+                        <span class="material-icons">shopping_cart</span> Adicionar
+                    </button>     </p>
+                <p><img src="imagem/images (2).jpg" alt="" class="cardapio"><br> MOUSSE - 700kz
+                    <button onclick="addToCart('MOUSSE', 700)" class="bu">
+                        <span class="material-icons">shopping_cart</span> Adicionar
+                    </button> </p>
+            </aside>
+            <aside class="co">
+                <h2>Bebidas</h2>
+                <p>
+                    <img src="imagem/pepsi.webp" alt="" class="cardapio"><br>
+                    Gasosa - 200KZ
+                    <button onclick="addToCart('Gasosa', 200)" class="bu">
+                        <span class="material-icons">shopping_cart</span> Adicionar
+                    </button>
+                </p>
+                <p>
+                    <p><img src="imagem/transferir (1).jpg" alt="" class="cardapio"><br>
+                         Sumo Palhinha - 150kz</p>
+                         <button onclick="addToCart('Sumo Palhinha', 150)" class="bu">
+                            <span class="material-icons">shopping_cart</span> Adicionar
+                        </button>     
+                </p>
+                <p><img src="imagem/1638952995_4751fde2a5b81873c1dde6450d79a269.jpg" alt="" class="cardapio"><br> Água - 150kz  <button onclick="addToCart('Água', 150)" class="bu">
+                    <span class="material-icons">shopping_cart</span> Adicionar
+                </button>  </p>
+            </aside>
+        </article>
+        <article>
+            <h2>✨Por que escolher o Provou & Gostou?</h2>
+            <ul>
+                <li>✅ Ingredientes frescos e de alta qualidade.</li>
+                <li>✅ Variedade para todos os gostos.</li>
+                <li>✅ Atendimento rápido e amigável.</li>
+            </ul>
+            <p class="dica">Venha nos visitar e descubra por que somos os melhores naquilo que fazemos. Afinal, quem prova, sempre volta! 😉</p>
+        </article>
+        <article>
+            <div>
+                <aside>
+                    <h3>Nosso contato</h3>
+                    <p>📞 Telefone: <a href="https://api.whatsapp.com/send?phone=244941742290&text=Bem vindo ao serviço de apoio ao cliente do Provou & Gostou">+244 941 742 290</a></p>
+                    <p>📍 Localização: Luanda Sul, dentro do condomínio da polícia no Instituto Politécnico Privado Nossa Senhora da Anunciação.</p>
+                </aside>
+            </div>
+        </article>
+    </main>
+
+  <!-- Carrinho -->
+  <div class="cart-container" id="cart">
+    <div class="cart-header">
+        <h3>Carrinho</h3>
+        <button onclick="toggleCart()">Fechar</button>
+    </div>
+    <div class="cart-items" id="cart-items"></div>
+    <div class="cart-total" id="cart-total">Total: 0KZ</div>
+    <a class="go-to-order" id="order-link" href="encomenda.html">Finalizar Encomenda</a>
+</div>
+<div class="cart-toggle" onclick="toggleCart()">🛒 Ver Carrinho</div>
+
+<script>
+    let cart = [];
+    const cartContainer = document.getElementById("cart");
+    const cartItemsContainer = document.getElementById("cart-items");
+    const cartTotal = document.getElementById("cart-total");
+    const orderLink = document.getElementById("order-link");
+
+    function addToCart(itemName, itemPrice) {
+        const itemIndex = cart.findIndex(item => item.name === itemName);
+        if (itemIndex > -1) {
+            cart[itemIndex].quantity++;
+        } else {
+            cart.push({ name: itemName, price: itemPrice, quantity: 1 });
+        }
+        updateCart();
+    }
+
+    function updateCart() {
+        cartItemsContainer.innerHTML = "";
+        let total = 0;
+
+        cart.forEach((item, index) => {
+            const itemElement = document.createElement("div");
+            itemElement.className = "cart-item";
+            itemElement.innerHTML = `
+                ${item.name} - ${item.price}KZ x ${item.quantity}
+                <button onclick="removeFromCart(${index})">Remover</button>
+            `;
+            cartItemsContainer.appendChild(itemElement);
+            total += item.price * item.quantity;
+        });
+
+        cartTotal.textContent = `Total: ${total}KZ`;
+
+        // Preencher os dados para o link de encomenda
+        const orderData = cart
+            .map(item => `${item.name} (${item.quantity}x)`)
+            .join(", ");
+        orderLink.href = `encomenda.html?items=${encodeURIComponent(orderData)}`;
+    }
+
+    function removeFromCart(index) {
+        cart[index].quantity--;
+        if (cart[index].quantity <= 0) cart.splice(index, 1);
+        updateCart();
+    }
+
+    function toggleCart() {
+        cartContainer.style.display = cartContainer.style.display === "none" || cartContainer.style.display === "" ? "block" : "none";
+    }
+
+       // Função para obter os itens do carrinho
+       function getCartItems() {
             const cartItems = [];
             document.querySelectorAll('#cart-items li').forEach(item => {
                 cartItems.push(item.textContent.trim());
@@ -30,6 +203,22 @@
             const items = encodeURIComponent(getCartItems());
             window.location.href = `encomenda.html?items=${items}`;
         });
-    </script>
+
+        <div id="cart-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="toggleCart()">×</span>
+            <h3>Carrinho</h3>
+            <div id="cart-items"></div>
+            <div id="cart-total">Total: 0KZ</div>
+            <a href="encomenda.html" id="order-link">Finalizar Encomenda</a>
+        </div>
+    </div>
+    function toggleCart() {
+        const modal = document.getElementById('cart-modal');
+        modal.style.display = modal.style.display === 'block' ? 'none' : 'block';
+    }
+
+</script>
 </body>
 </html>
+

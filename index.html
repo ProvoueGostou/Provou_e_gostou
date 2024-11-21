@@ -145,6 +145,16 @@
     const cartTotal = document.getElementById("cart-total");
     const orderLink = document.getElementById("order-link");
 
+    // Criando a área de notificação dentro e fora do carrinho
+    const notificationContainer = document.createElement('div');
+    notificationContainer.classList.add('cart-notification-container');
+    cartContainer.appendChild(notificationContainer);
+
+    const outsideNotification = document.createElement('div');
+    outsideNotification.classList.add('outside-notification');
+    document.body.appendChild(outsideNotification);
+
+    // Função para adicionar um produto ao carrinho
     function addToCart(itemName, itemPrice) {
         const itemIndex = cart.findIndex(item => item.name === itemName);
         if (itemIndex > -1) {
@@ -153,8 +163,10 @@
             cart.push({ name: itemName, price: itemPrice, quantity: 1 });
         }
         updateCart();
+        showCartNotification(itemName, itemPrice);  // Exibir a notificação dentro do carrinho
     }
 
+    // Função para atualizar o carrinho
     function updateCart() {
         cartItemsContainer.innerHTML = "";
         let total = 0;
@@ -172,38 +184,128 @@
 
         cartTotal.textContent = `Total: ${total}KZ`;
 
-        // Preencher os dados para o link de encomenda
+        // Atualizar o link de finalização da encomenda
         const orderData = cart
             .map(item => `${item.name} (${item.quantity}x)`)
             .join(", ");
         orderLink.href = `encomenda.html?items=${encodeURIComponent(orderData)}`;
     }
 
+    // Função para remover item do carrinho
     function removeFromCart(index) {
         cart[index].quantity--;
         if (cart[index].quantity <= 0) cart.splice(index, 1);
         updateCart();
     }
 
+    // Função para alternar visibilidade do carrinho
     function toggleCart() {
         cartContainer.style.display = cartContainer.style.display === "none" || cartContainer.style.display === "" ? "block" : "none";
     }
 
-       // Função para obter os itens do carrinho
-       function getCartItems() {
-            const cartItems = [];
-            document.querySelectorAll('#cart-items li').forEach(item => {
-                cartItems.push(item.textContent.trim());
-            });
-            return cartItems.join(', ');
+    // Função para mostrar a notificação no carrinho
+    function showCartNotification(itemName, itemPrice) {
+        const notificationMessage = document.createElement("div");
+        notificationMessage.className = "cart-notification";
+        notificationMessage.textContent = `${itemName} foi adicionado ao seu carrinho! Preço: ${itemPrice}KZ`;
+
+        // Se o carrinho estiver fechado, mostra a notificação fora do carrinho
+        if (cartContainer.style.display === "none" || cartContainer.style.display === "") {
+            showOutsideNotification(itemName, itemPrice);
+        } else {
+            // Caso contrário, mostra a notificação dentro do carrinho
+            notificationContainer.appendChild(notificationMessage);
         }
 
-        // Redirecionar para a página de encomendas
-        document.getElementById('checkout-btn').addEventListener('click', () => {
-            const items = encodeURIComponent(getCartItems());
-            window.location.href = `encomenda.html?items=${items}`;
+        // Fazer a notificação desaparecer após 3 segundos
+        setTimeout(() => {
+            notificationMessage.remove();
+        }, 3000);  // 3000ms = 3 segundos
+    }
+
+    // Função para mostrar a notificação fora do carrinho
+    function showOutsideNotification(itemName, itemPrice) {
+        const outsideMessage = document.createElement("div");
+        outsideMessage.className = "outside-message";
+        outsideMessage.textContent = `${itemName} foi adicionado ao carrinho!`;
+
+        outsideNotification.innerHTML = '';  // Limpa a notificação anterior
+        outsideNotification.appendChild(outsideMessage);
+
+        // Fazer a notificação desaparecer após 3 segundos
+        setTimeout(() => {
+            outsideMessage.remove();
+        }, 3000);  // 3000ms = 3 segundos
+    }
+
+    // Função para obter os itens do carrinho
+    function getCartItems() {
+        const cartItems = [];
+        document.querySelectorAll('#cart-items li').forEach(item => {
+            cartItems.push(item.textContent.trim());
         });
+        return cartItems.join(', ');
+    }
+
+    // Redirecionar para a página de encomendas
+    document.getElementById('checkout-btn').addEventListener('click', () => {
+        const items = encodeURIComponent(getCartItems());
+        window.location.href = `encomenda.html?items=${items}`;
+    });
 </script>
+
+<!-- Adicione este estilo ao seu CSS para a notificação -->
+<style>
+    /* Notificação dentro do carrinho */
+    .cart-notification-container {
+        position: absolute;
+        top: 10px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 90%;
+        z-index: 999;
+    }
+
+    .cart-notification {
+        background-color: #4CAF50; /* Verde */
+        color: white;
+        padding: 10px;
+        margin: 5px 0;
+        border-radius: 5px;
+        font-size: 16px;
+        text-align: center;
+        animation: fadeInOut 3s ease-out;
+    }
+
+    /* Notificação fora do carrinho */
+    .outside-notification {
+        position: fixed;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 90%;
+        z-index: 999;
+        text-align: center;
+    }
+
+    .outside-message {
+        background-color: #2196F3; /* Azul */
+        color: white;
+        padding: 10px;
+        margin: 5px 0;
+        border-radius: 5px;
+        font-size: 16px;
+        animation: fadeInOut 3s ease-out;
+    }
+
+    /* Animação para a notificação */
+    @keyframes fadeInOut {
+        0% { opacity: 0; }
+        30% { opacity: 1; }
+        100% { opacity: 0; }
+    }
+</style>
+
 </body>
 </html>
 
