@@ -47,37 +47,36 @@
     </div>
 
     <script>
-        // Captura os parâmetros da URL
         function getURLParams() {
             const params = new URLSearchParams(window.location.search);
             return params.get('items') || '';
         }
 
-        // Exibe os itens da encomenda
+        
         function displayOrder() {
-            const itemsParam = getURLParams(); // Pega o parâmetro "items" da URL
-            const orderList = document.getElementById('order-list'); // Elemento UL
+            const itemsParam = getURLParams(); 
+            const orderList = document.getElementById('order-list'); 
             if (!itemsParam) {
                 orderList.innerHTML = '<li>Nenhum item foi selecionado.</li>';
                 return;
             }
 
-            // Decodifica os itens e exibe na lista
+            
             const items = decodeURIComponent(itemsParam).split(', ');
-            orderList.innerHTML = ''; // Limpa a lista antes de preenchê-la
+            orderList.innerHTML = ''; 
             items.forEach(item => {
-                const li = document.createElement('li'); // Cria um elemento <li>
-                li.textContent = item; // Define o texto do item
-                orderList.appendChild(li); // Adiciona à lista
+                const li = document.createElement('li'); 
+                li.textContent = item; 
+                orderList.appendChild(li); 
             });
         }
 
-        // Chamar a função ao carregar a página
+        
         window.onload = displayOrder;
 
-        // Envio do formulário (simula envio para o WhatsApp)
+     
         document.getElementById('order-form').addEventListener('submit', function (e) {
-            e.preventDefault(); // Impede o envio padrão do formulário
+            e.preventDefault(); 
 
             const firstName = document.getElementById('first-name').value;
             const lastName = document.getElementById('last-name').value;
@@ -90,15 +89,15 @@
                 return;
             }
 
-            // Monta a mensagem do WhatsApp
-            const numeroWhatsApp = '244927527'; // Substitua pelo número da empresa
+            
+            const numeroWhatsApp = '244927527809'; 
             const mensagem = `Olá, gostaria de fazer um pedido:%0A` +
                 `Nome: ${firstName} ${lastName}%0A` +
                 `Sala: ${classroom}%0A` +
                 `Curso: ${course}%0A` +
                 `Produtos: ${items}`;
 
-            // Redireciona para o WhatsApp
+            
             const linkWhatsApp = `https://api.whatsapp.com/send?phone=${numeroWhatsApp}&text=${mensagem}`;
             window.open(linkWhatsApp, '_blank');
         });
