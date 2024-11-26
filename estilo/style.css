@@ -190,7 +190,6 @@ form button:hover {
         padding: 10px;
         border-top-left-radius: 10px;
         cursor: pointer;
-        height: 20px;
     }
 
     .go-to-order {
